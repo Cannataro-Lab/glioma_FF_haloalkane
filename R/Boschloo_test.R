@@ -55,36 +55,13 @@ boschloo_tester <- function(input_vec,
   
 } 
 
-# pvals <- parallel::mclapply(X = 1:length(VAF_list), FUN = boschloo_tester,mc.cores = cores_to_use)
+
 pvals <- parallel::mclapply(X = VAF_list, FUN = boschloo_tester,mc.cores = cores_to_use)
 
 
 
-# why is this now failing during parallel runs? Because all DBS! 
 
-# 
-# 
-# 
-# 
-# while("try-error" %in% unlist(map(pvals,class))){
-#   
-#   need_fixing <- which(unlist(map(pvals,class)) == "try-error")
-#   
-#   pvals_to_add <- parallel::mclapply(X = VAF_list[need_fixing], FUN = boschloo_tester,mc.cores = cores_to_use)
-#   
-#   pvals[need_fixing] <- pvals_to_add
-#   
-# }
 
 saveRDS(pvals, file = "output_data/pvals.rds")
 
 
-
-
-# saveRDS(object = pvals_min,file = "pvals_min.rds")
-
-# all_data_filtered_maf <- all_data_filtered_maf |> 
-#   mutate(pval_min = pvals_min)
-
-
-# saveRDS(all_data_filtered_maf,file = "all_data_filtered_maf_afterBoschloo.rds")
