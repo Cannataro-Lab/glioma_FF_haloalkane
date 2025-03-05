@@ -96,8 +96,12 @@ all_data_filtered_maf <- all_data_filtered_maf |>
 # save final data from this analysis post-filtering 
 saveRDS(all_data_filtered_maf, file = "output_data/all_data_filtered_maf.rds")
 
+# save final data after cleaning for easy access
+write_csv(x = all_data_filtered_maf, file = "output_data/sequencing_data_filtered_maf.csv")
 
 
+# for easy access to filtered data
+# all_data_filtered_maf <- read_csv(file = "output_data/sequencing_data_filtered_maf.csv")
 
 # Bootstrap analysis -----------------------------------------------------------
 
@@ -185,6 +189,8 @@ fig1 <- job_fig_median + variant_fig_median + plot_annotation(tag_levels = 'A')
 ggsave(plot = fig1,filename = "figures/SBS42_v_ffyears_JobAndVariants_median.png",
        width = 14,height = 5)
 ggsave(plot = fig1,filename = "figures/SBS42_v_ffyears_JobAndVariants_median.pdf",
+       width = 14,height = 5)
+ggsave(plot = fig1,filename = "figures/SBS42_v_ffyears_JobAndVariants_median.EPS",
        width = 14,height = 5)
 
 # 

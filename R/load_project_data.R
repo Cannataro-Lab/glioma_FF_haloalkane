@@ -5,7 +5,7 @@
 
 cov_data <- read_csv("input_data/cov_data.csv")
 
-all_data <- read_csv("input_data/all_data.csv")
+all_data <- read_csv("input_data/all_sequencing_data.csv")
 
 
 
